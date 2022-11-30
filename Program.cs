@@ -6,19 +6,7 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
-            string num_1;
-            string op;
-            string num_2;
-
-            Console.WriteLine("Welcome to the simple calculator");
-            Console.WriteLine("Please the the first number");
-            
-            num_1=Console.ReadLine();
-            Console.WriteLine("Please the operator");
-            op=Console.ReadLine();
-            Console.WriteLine("Please enter the second number");
-            num_2= Console.ReadLine();
-            Console.WriteLine(Calculate(num_1,op, num_2));
+          Console.WriteLine(GetDay(5));
         }
 
         // we can also have methods that return things. in which case we will not put "void" next to statci but the data type we want to return. here in the cubing function we are returning an int, so static int
@@ -52,6 +40,40 @@ namespace dotnetcore
                 result = "operators or numbers not valid. Please reenter any of the accepted ones: *, -, +, /";
             }
             return result.ToString();
+        }
+
+        static string GetDay(int dayNum){
+            //learning about switch statements
+            string DayName;
+            
+            switch(dayNum){
+                case 0:
+                    DayName= "Sunday";
+                    break; //reserved keyword, break out of the structure we are currently in//
+                case 1:
+                    DayName = "Monday";
+                    break;
+                case 2:
+                    DayName = "Tuesday";
+                    break;
+                case 3:
+                    DayName = "Wednesday";
+                    break;
+                case 4:
+                    DayName = "Thursday";
+                    break;
+                case 5:
+                    DayName = "Friday";
+                    break;
+                case 6:
+                    DayName = "Saturday";
+                    break;
+                default:
+                    DayName= "Invalid day number entered";
+                    break;
+
+            }
+            return DayName;
         }
     }
 }
