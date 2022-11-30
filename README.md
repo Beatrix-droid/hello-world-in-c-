@@ -1,4 +1,8 @@
+ Using the following template to improve my understanding of the c# language whilst using a gitpod linux machine
+
+
 # A .NET Core CLI template on Gitpod
+
 
 This is a [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/introduction) template configured for ephemeral cloud development environments on [Gitpod](https://www.gitpod.io/).
 
