@@ -6,25 +6,25 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("array notes");
-            //initialising an array with square brackets, the type of variable the array contains, the name of the array and some curly brackets.
-            int [] luckyNumbers={4, 6, 89, 3};
-
-            //accessing arrays (specify index)
-            Console.WriteLine(luckyNumbers[2]); //returns 89
+            Console.WriteLine(CubeIt(8)); //call functions you created into main mehtod(or main function to execute them)
+            int cubed= CubeIt(3);
+            Console.WriteLine(cubed);
         
+        //if statements
+            bool isFemale=true;
 
-            //you can also initiliase arrays without populating them immediately. So long as you use the "new" keyword and give the array a size (in this case it is an array of size 7)
-            string []  friends=new string[7];
+            //general structure of an if statement  if (condition){code for that condition}
+            if (isFemale){
+                Console.WriteLine("is a female");
+            }        
 
-            //now we can populate the array
-            friends[0]="Jim";
-            friends[1]= "Henry";
-            friends[6]= "cat";
-            SayHi("John"); //call functions you created into main mehtod(or main function to execute them)
         }
-        static void  SayHi(string name){    // this method will not return any info, but jst print to the console (methods are functions in c#)
-            Console.WriteLine("Hi " + name);
+
+        // we can also have methods that return things. in which case we will not put "void" next to statci but the data type we want to return. here in the cubing function we are returning an int, so static int
+
+        static int  CubeIt(int number){    // this method will not return any info, but jst print to the console (methods are functions in c#)
+            int result = number*number*number;
+            return result;
         }
     }
 }
