@@ -6,45 +6,36 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
-            //printing to the console with writeline//
-            Console.WriteLine("Hello World!");
-           
-           //types of variables strings and ints and how to declare them//
-
-            string CharacterName = "John";
-            int CharacterAge=11;
-
-            Console.WriteLine("There once was a man named "+ CharacterName + " and he was " + CharacterAge +" years old.");
+            string Num1;
+            string Num2;
             
+            Console.WriteLine("Please enter the first numer:");
+            Num1 = Console.ReadLine();
 
-            // you can also create variables, assing them a type and map them to a vlaue later on. Here we have created a//
-            // string variable called "name" and only later assigned it to a user input function"//
-            string name;
-            name=Console.ReadLine(); //console readline is used to get user input
+            Console.WriteLine("Please enter the second number");
+            Num2 = Console.ReadLine();
             
-            Console.WriteLine(name);
+            //user input is string, must convert to int32 to perfomr the calculation
+            Console.WriteLine("The result of the calculation is:");
+            Console.WriteLine( Convert.ToInt32(Num1)+ Convert.ToInt32(Num2));
 
-            //data types in c# :
-            ///////////text////
-            // string: denoted by opening and closing quotation marks//
-            // character (char) a single caracter. for this we want to use single quotation marks'//
+            Console.WriteLine("array notes");
+            //initialising an array with square brackets, the type of variable the array contains, the name of the array and some curly brackets.
+            int [] luckyNumbers={4, 6, 89, 3};
 
-            //for numbers we have 3 data types that store numbers: integer float, decimal. and double//
-
-            //an integer (int) is a whole number, can also do negative numbers//
-            //decimals can be stored in floats, doubls or decmals. these range from least accurate to most acurate//
-
-            // we also have boolean  (bool) (true false values)
-
-            //writing a calculator//
-            int num=8;
-            num ++; //how to incement values by 1
-            Console.WriteLine(num); 
-
-         
-
-
+            //accessing arrays (specify index)
+            Console.WriteLine(luckyNumbers[2]); //returns 89
         
+
+            //you can also initiliase arrays without populating them immediately. So long as you use the "new" keyword and give the array a size (in this case it is an array of size 7)
+            string []  friends=new string[7];
+
+            //now we can populate the array
+            friends[0]="Jim";
+            friends[1]= "Henry";
+            friends[6]= "cat";
+
+           
         }
     }
 }
