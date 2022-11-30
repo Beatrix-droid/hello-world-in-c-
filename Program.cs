@@ -36,6 +36,12 @@ namespace dotnetcore
 
             // we also have boolean  (bool) (true false values)
 
+            //writing a calculator//
+            int num=8;
+            num ++; //how to incement values by 1
+            Console.WriteLine(num); 
+
+         
 
 
         
