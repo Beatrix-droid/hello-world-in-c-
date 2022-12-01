@@ -16,15 +16,36 @@ namespace dotnetcore
         static void Main(string[] args)
         {
 
-            //creating a book object
+            //creating a book object (variabe is of type book)
             Books book1 = new Books();
             book1.title = "The picture of Dorian Grey";
             book1.author= "Oscar wilde";
+
+             Books book2 = new Books();
+            book2.title = "Lord of the Rings";
+            book2.author= "Tolkein";
             
 
-            Console.Write(book1.author);
-            //exception handling
 
+            //printing out attributes of the class
+
+            Console.WriteLine($"{book1.author}{book2.title}"); // the $ and " are the equivalent of f strings in python
+            Console.WriteLine($"Using a $ sgn that precedes quotation marks ina  string with a variable in curly braces inserted into the string (such as this one {book2.author} is like using f strings in python.) ");
+            
+
+            /// READ, READLINE READKEY, WRITE, WRITELINE, WRITE KEY DIFFERENCES
+            //readline reads all characters unti the end of the line (the whole string)
+            //read reads the next character from the standard input stream, only accepts a single character from user input, and returns its ascii code
+            //readkey obtains the next character or function key pressed by the user and returns its name. It does not require to press the neter key before entering
+
+
+            //write (writes the string)
+            //write line writes the line and adds a new string
+            //write key just writes one character
+
+
+            //exception handling
+            
             Console.Write("Enter a number");
             int num_1 = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter another number");
