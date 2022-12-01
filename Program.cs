@@ -1,11 +1,18 @@
 ﻿using System;
 
+
+
 namespace dotnetcore
 {
     class Program
     {
         static void Main(string[] args)
         {
+
+            //creating a book object
+            Books book1 = new Books();
+            //book1.title = "The picture of Dorian Grey";
+            //book1.author= "Oscar wilde";
             
             //exception handling
 
@@ -28,6 +35,9 @@ namespace dotnetcore
  }
             catch(FormatException e){
                 Console.Write("You did not enter a number"); // do something when user enters string instead of number
+            }
+            finally {//optional block of code after try cath that gets executed no matter what
+                    Console.Write("Thanks for using the calculator");
             }
 
 

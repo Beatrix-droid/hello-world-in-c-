@@ -3,6 +3,11 @@
 
 # A .NET Core CLI template on Gitpod
 
+ to do
+ * data structures hasmaps and lists
+ * params kw arguments
+ * multiple c# files and how to import them
+
 
 This is a [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/introduction) template configured for ephemeral cloud development environments on [Gitpod](https://www.gitpod.io/).
 
