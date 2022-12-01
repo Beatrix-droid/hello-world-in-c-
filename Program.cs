@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -48,26 +49,10 @@ namespace dotnetcore
 
 
 
-
-
-
-
-
-
-
-
-
-
-
     class Program
     {
         static void Main(string[] args)
         {
-
-
-
-
-
 
 
             //creating two students
@@ -87,9 +72,6 @@ namespace dotnetcore
             Books book2 = new Books("Lord of the rings", "Tolkien");
         /*    book2.title = "Lord of the Rings";
             book2.author= "Tolkein"; */
-
-
-            
 
 
             //printing out attributes of the class
@@ -181,7 +163,7 @@ namespace dotnetcore
 
         //foreach lets us loop over the data in a dictionary
         
-          Dictionary<string, int> data = new Dictionary<string, int>()
+        Dictionary<string, int> data = new Dictionary<string, int>()
         {
             {"cat", 2},
             {"dog", 1},
@@ -193,7 +175,7 @@ namespace dotnetcore
         foreach (KeyValuePair<string, int> pair in data)
         {
             Console.WriteLine($"FOREACH KEYVALUEPAIR: {pair.Key}, {pair.Value}");
-
+        }
         //getting keys:
         //s. The Keys property returns a collection of type KeyCollection, not an actual List.
         // We can convert it into a List. This property is helpful in many programs.
@@ -266,7 +248,7 @@ namespace dotnetcore
 
 
         //indexer: another way to add items to a dict
-          Dictionary<int, int> dictionary2 = new Dictionary<int, int>();
+        Dictionary<int, int> dictionary2 = new Dictionary<int, int>();
         
         // We can assign with the indexer.
         dictionary2[1] = 2;
@@ -277,12 +259,43 @@ namespace dotnetcore
         dictionary.Clear();
 
 
+        //the next data structure are hashample maps: Here is how you initilaise one:
+         // Create a hashtable
+        // Using Hashtable class  (systems.collections)
+        Hashtable my_hashtable = new Hashtable();
+  
+        // Adding key/value pair in the hashtable
+        // Using Add() method
+        my_hashtable.Add("A1", "Welcome");
+        my_hashtable.Add("A2", "to");
+        my_hashtable.Add("A3", "GeeksforGeeks");
+  
+        foreach(DictionaryEntry element in my_hashtable)
+        {
+            Console.WriteLine("Key:- {0} and Value:- {1} ",
+                        element.Key, element.Value);
+        }
 
+        // a hashtable is a non generic collection. It is defined under the System.Collections namespace unlike the dictionary, that is defiend nder System.Collections.Generic namespace.
+        
 
+        //differences between hastable and a dictionary
 
+        //                      Hashtable	                                                                                Dictionary
+        //In Hashtable, you can store key/value pairs of the same type or of the different type.	In Dictionary, you can store key/value pairs of same type
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //In Hashtable, there is no need to specify the type of the key and value.	                In Dictionary, you must specify the type of key and value.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //The data retrieval is slower than Dictionary due to boxing/ unboxing.	                 The data retrieval is faster than Hashtable due to no boxing/ unboxing.
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //In Hashtable, if you try to access a key that doesn’t present in the given Hashtable,   In Dictionary, if you try to access a key that doesn’t present in the given Dictionary, then 
+        //then it will give null values.	                                                        it will give error.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //It is thread safe.	                                                                    It is also thread safe but only for public static members.
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //It doesn’t maintain the order of stored values.	It always maintain the order of stored values.
 
-
-
+        // the methods for manipulating hastbales are the same as the ones used in dictionaries
 
 
         //two dim arrays//
@@ -393,6 +406,26 @@ namespace dotnetcore
             return result.ToString();
 
 
+        }
+
+
+        //creating methods with multiple parameters:useful when you are unsure of how many parameters to pass into the function.
+
+        //here is a function that takes in as paramters the surface areas of walls to paint and adds them together to get a total surface area. The nmber of walls may vary,
+        //so the number of paramters in the function is variable: (use params keyword, and this time we pass in an array of integers)
+        static int GetTotalArea(params int[] walls){
+            int total=0;
+            for (int i=0; i < walls.Length; i++){
+                total += walls[i];
+            }
+            return total;
+        }
+        Console.WriteLine(GetTotalArea(2, 3, 58));
+
+
+        //optional paramters are defined very similarly to python: Optional parameters are defined at the end of the parameter list, after any required parameters
+        void ExampleMethod(int required, string optionalstr = "default string", int optionalint = 10){
+            Console.WriteLine("do something");
         }
 
         static string GetDay(int dayNum){
