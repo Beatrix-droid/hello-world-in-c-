@@ -4,6 +4,13 @@
 
 namespace dotnetcore
 {
+
+     public class Books
+    {
+        public string title;
+        public string author;
+
+    }
     class Program
     {
         static void Main(string[] args)
@@ -11,9 +18,11 @@ namespace dotnetcore
 
             //creating a book object
             Books book1 = new Books();
-            //book1.title = "The picture of Dorian Grey";
-            //book1.author= "Oscar wilde";
+            book1.title = "The picture of Dorian Grey";
+            book1.author= "Oscar wilde";
             
+
+            Console.Write(book1.author);
             //exception handling
 
             Console.Write("Enter a number");
@@ -30,10 +39,10 @@ namespace dotnetcore
          /*    catch(Exception e){
                 Console.Write(e.Message);  //print out the error message  but can also define specific exceptions
             }
- */         catch(DivideByZeroException e){ //do something when this specific exception occurs (ie divide by 0)
+ */         catch(DivideByZeroException){ //do something when this specific exception occurs (ie divide by 0)
                 Console.Write("You attempted to divide by 0");
  }
-            catch(FormatException e){
+            catch(FormatException){
                 Console.Write("You did not enter a number"); // do something when user enters string instead of number
             }
             finally {//optional block of code after try cath that gets executed no matter what
