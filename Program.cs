@@ -19,7 +19,7 @@ namespace dotnetcore
                 director=aDirector;
                 rating=aRating;
         }
-    }
+
 
         public string Rating{ // a getter and setter for the private variable rating class
                 get{return rating;}
@@ -38,6 +38,11 @@ namespace dotnetcore
         //will be able to access that method/variable.
 
     }
+
+
+
+    }
+
 
     public class Books
     {
@@ -71,12 +76,6 @@ namespace dotnetcore
             return false;
         }
     }
-
-
-
-
-
-
 
 
 
