@@ -4,8 +4,6 @@
 # A .NET Core CLI template on Gitpod
 
  to do
- * data structures hasmaps
- * params kw arguments
  * multiple c# files and how to import them
 
 

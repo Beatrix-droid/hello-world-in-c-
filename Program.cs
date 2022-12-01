@@ -1,13 +1,45 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+
 
 
 namespace dotnetcore
 {
 
-     public class Books
+    class Movie
+    { //getters and settersallow us to modify and set teh code in private methods or variables
+
+        public string title;
+        public string director;
+        private string rating;
+
+        public Movie(string aTitle, string aDirector, string aRating){
+                title=aTitle;
+                director=aDirector;
+                rating=aRating;
+        }
+    }
+
+        public string Rating{ // a getter and setter for the private variable rating class
+                get{return rating;}
+                //create a mehtod that allows peeps to modify the rating attribute only if the value they want to set is in any of these categories:
+                set{if (value == "G" || value =="PG" || value =="PG-13" || value=="R" || value =="NR"){
+                    rating = value;
+                        }
+                else{
+                    rating = "NR";
+                }
+        }
+
+
+        //we have only certain types of ratings (like PG, pG!£, R etc etc). We need a way to prevent users to insert a rating that is not in a list (like movie_1.arating= "dog")
+        //this is achieved by using a PRIVATE method. PUBLIC methods and varaibles can be accessed (and thus modified) by anyone. but with PRIVATE only code isnide of the class
+        //will be able to access that method/variable.
+
+    }
+
+    public class Books
     {
         public string title;
         public string author;
@@ -53,6 +85,10 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
+
+            //getters and setters
+            Movie movie_1 = new Movie( "The Avengers", "Joss Whedon", "PG-13");
+            Movie movie_2 = new Movie("Shrek", "Adam Adamson", "PG");
 
 
             //creating two students
