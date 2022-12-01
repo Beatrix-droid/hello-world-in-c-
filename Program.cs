@@ -6,7 +6,55 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
+            
+            //exception handling
 
+            Console.Write("Enter a number");
+            int num_1 = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter another number");
+            int num_2 = Convert.ToInt32(Console.ReadLine());
+
+
+            try{
+                Console.Write(num_1/num_2);
+                }
+
+            
+         /*    catch(Exception e){
+                Console.Write(e.Message);  //print out the error message  but can also define specific exceptions
+            }
+ */         catch(DivideByZeroException e){ //do something when this specific exception occurs (ie divide by 0)
+                Console.Write("You attempted to divide by 0");
+ }
+            catch(FormatException e){
+                Console.Write("You did not enter a number"); // do something when user enters string instead of number
+            }
+
+
+
+
+
+
+        //two dim arrays//
+        //Here is how you init one://
+
+        int [,] TwoDimArr ={
+            {1, 2},
+            {2, 3},
+            {4, 5}
+        };
+
+        //accessing the array//
+        Console.WriteLine(TwoDimArr[0, 1]);  //row 0 column 1 prints out 2//
+        Console.WriteLine(TwoDimArr[2, 1]);  //row 2 column 1 prints out 5//
+
+        //like before can creat a new arrayw ithout populating it immediately so long you specify the dimensions//
+        int[,] myArray= new int[2,3]; //array of two rows and three columns//
+
+
+
+
+        
         Console.WriteLine(exponentiate(4,3));
         // for loops//
         // for i less than 5 and starting at one, with i incrementing by one each time
