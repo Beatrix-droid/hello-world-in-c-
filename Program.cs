@@ -1,5 +1,6 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
 
 
 namespace dotnetcore
@@ -62,6 +63,12 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
+
+
+
+
+
+
 
             //creating two students
             Student student1 = new Student("Pam", "maths", 4.0);
@@ -131,16 +138,162 @@ namespace dotnetcore
 
 
 
+        //lists
+        //crate a list with a List keyword, and specify the type. Like before you can populate it now or later. and can additems to it alter THE DIMENSIONS OF THE LIST CAN VARY
+        List<string> myList = new List<string>();
+
+
+        //use the add method to add items to the list//
+        myList.Add("Hello");
+        myList.Add("World");
+
+        // The first argument to InsertRange is the index where we want to insert new elements. The second is an IEnumerable (a string array).
+        myList.InsertRange(1, new string[] { "frog", "snake" });
+       // myList.Add(10); // Compiler Error AS 10 IS NOT OF TYPE STRING
+       //lsits are accessed in much the same manner as arrays are accessed.
+
+        //IndexOf. This determines the element index of a certain value in the List collection. 
+        myList.IndexOf("frog");
+
+        myList.Clear(); //to delete the list
+
+        //contains method checks if a specifici value is in the list.
+        myList.Contains("frog"); //will return true
+
+        //dictionaries are initlaised like this (again can populate them later. They do not have a fixed lenght, but their type must be specified from the beginning)
+        Dictionary<string, int> myDictionary = new Dictionary<string, int>();
+
+        myDictionary.Add("fred", 33); //adding a new value pair to the dict
+       // myDictionary.Keys;
+
+
+        myDictionary.Add("bob", 27);
+        myDictionary.Add("fred", 33);
+
+        int theAge = myDictionary["bob"];
+
+        //TryGetValue. This is often the most efficient lookup, tests if a key is in dictionary and if it is, returns the result
+        int result;
+        if (myDictionary.TryGetValue("c", out result))
+        {
+            Console.WriteLine(result);
+        }
+
+        //foreach lets us loop over the data in a dictionary
+        
+          Dictionary<string, int> data = new Dictionary<string, int>()
+        {
+            {"cat", 2},
+            {"dog", 1},
+            {"llama", 0},
+            {"iguana", -1}
+        };
+        
+        // Part 2: loop over pairs with foreach.
+        foreach (KeyValuePair<string, int> pair in data)
+        {
+            Console.WriteLine($"FOREACH KEYVALUEPAIR: {pair.Key}, {pair.Value}");
+
+        //getting keys:
+        //s. The Keys property returns a collection of type KeyCollection, not an actual List.
+        // We can convert it into a List. This property is helpful in many programs.
+
+
+
+        var datadict = new Dictionary<string, int>()
+        {
+            {"cat", 2},
+            {"dog", 1},
+            {"llama", 0},
+            {"iguana", -1}
+        };
+        // Store keys in a List.
+        var list = new List<string>(datadict.Keys); //convert the key collection into a list object
+        // Loop through the List.
+        foreach (string key in list)
+        {
+            Console.WriteLine("KEY FROM LIST: " + key);
+        }
+
+
+        //count returns the number of keys in a dictionary
+        var lunch = new Dictionary<string, int>() { {"carrot", 1}, {"pear", 4}, {"apple", 6}, {"kiwi", 3} };
+        Console.WriteLine("COUNT: " + lunch.Count);
+
+        //remove eliminates the key and its value if its found in the dictionary
+
+        // Remove pear.
+        lunch.Remove("pear");
+        Console.WriteLine("COUNT: " + lunch.Count);
+
+
+        //TryAdd add an entry only if the key is not found. It returns a bool that tells us whether the key was added.
+        var items = new Dictionary<string, int>();
+        // Part 1: add the string with value 1.
+        bool result1 = items.TryAdd("test", 1);
+        Console.WriteLine("Added: " + result1);
+        
+        // Part 2: the value already exists, so we cannot add it again.
+        bool result2 = items.TryAdd("test", 2);
+        Console.WriteLine("Added: " + result2);
+        
+        // Part 3: the value is still 1.
+        Console.WriteLine(items.GetValueOrDefault("test"));
+
+
+        //contains key this commonly-called method sees if a given string is present in a Dictionary. 
+
+        Dictionary<string, int> dictionary = new Dictionary<string, int>();
+        
+        dictionary.Add("apple", 1);
+        dictionary.Add("windows", 5);
+        
+        // See whether Dictionary contains this string.
+        if (dictionary.ContainsKey("apple")){
+            int value = dictionary["apple"];
+            Console.WriteLine(value);
+        }
+
+        //contains value. This method tries to find a value in the Dictionary (not a key).
+        var data1 = new Dictionary<string, int>();
+        data1.Add("cat", 1);
+        data1.Add("dog", 2);
+        // Use ContainsValue to see if the value is present with any key.
+        if (data1.ContainsValue(1))
+        {
+            Console.WriteLine("VALUE 1 IS PRESENT");
+        }
+
+
+        //indexer: another way to add items to a dict
+          Dictionary<int, int> dictionary2 = new Dictionary<int, int>();
+        
+        // We can assign with the indexer.
+        dictionary2[1] = 2;
+        dictionary2[2] = 1;
+        dictionary2[1] = 3; // Reassign.
+
+        //clear method to delte dict
+        dictionary.Clear();
+
+
+
+
+
+
+
+
 
 
         //two dim arrays//
         //Here is how you init one://
-
         int [,] TwoDimArr ={
             {1, 2},
             {2, 3},
             {4, 5}
         };
+
+
 
         //accessing the array//
         Console.WriteLine(TwoDimArr[0, 1]);  //row 0 column 1 prints out 2//
