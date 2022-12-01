@@ -19,6 +19,24 @@ namespace dotnetcore
             Console.WriteLine(index_2);
             index_2 ++;
         } while (index_2 <=5);
+
+
+        // creating a  guessing game//
+        string secret_word= "giraffe";
+        string guess="";
+
+       /*  while(guess != secret_word){
+            Console.WriteLine("enter a guess");
+            guess= Console.ReadLine();
+        }
+        Console.WriteLine("You win"); */
+
+        // can also do the same thing with a do while loop
+        do{
+            Console.WriteLine("Enter a guess");
+            guess = Console.ReadLine();
+        } while(guess != secret_word);
+        Console.WriteLine("You win");
         }
 
         // we can also have methods that return things. in which case we will not put "void" next to statci but the data type we want to return. here in the cubing function we are returning an int, so static int
@@ -31,7 +49,7 @@ namespace dotnetcore
                 Convert.ToDecimal(num_1);
                 Convert.ToDecimal(num_2);
             }
-            catch(System.FormatException ex){
+            catch(System.FormatException){
                 Console.WriteLine("operands incorrecty entered. Please make sure to enter numbers only");
             }
 
