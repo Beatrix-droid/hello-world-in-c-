@@ -10,20 +10,78 @@ namespace dotnetcore
         public string title;
         public string author;
 
+        public Books(string author, string title){
+            Console.WriteLine("Creating book");
+        }
+
     }
+
+    public class Student{
+        public string name;
+        public string major;
+        public double gpa;
+
+
+        public Student( string aname, string amajor, double agpa){
+            name=aname;
+            major=amajor;
+            gpa=agpa;
+
+        }
+        
+        //create a class method that checks if a particualr student is on the honour roll (gpa greater than 3.5)
+        public bool HasHonours(){
+            if (gpa >=3.5){
+                return true;
+            }
+            return false;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     class Program
     {
         static void Main(string[] args)
         {
 
-            //creating a book object (variabe is of type book)
-            Books book1 = new Books();
-            book1.title = "The picture of Dorian Grey";
-            book1.author= "Oscar wilde";
+            //creating two students
+            Student student1 = new Student("Pam", "maths", 4.0);
+            Student student2 = new Student("jim", "art", 3.2);
 
-             Books book2 = new Books();
-            book2.title = "Lord of the Rings";
-            book2.author= "Tolkein";
+
+            Console.WriteLine(student1.HasHonours());
+            //creating a book object (variabe is of type book)
+            Books book1 = new Books("The Picture of Dorian Grey", "Oscar Wilde");
+
+
+                // don't need to manually set these attributes any more, can direclty initialise them with constuctor
+            /* book1.title = "The picture of Dorian Grey"; */
+            /*      book1.author= "Oscar wilde";
+ */
+            Books book2 = new Books("Lord of the rings", "Tolkien");
+        /*    book2.title = "Lord of the Rings";
+            book2.author= "Tolkein"; */
+
+
             
 
 
@@ -57,12 +115,12 @@ namespace dotnetcore
                 }
 
             
-         /*    catch(Exception e){
+        /*    catch(Exception e){
                 Console.Write(e.Message);  //print out the error message  but can also define specific exceptions
             }
  */         catch(DivideByZeroException){ //do something when this specific exception occurs (ie divide by 0)
                 Console.Write("You attempted to divide by 0");
- }
+}
             catch(FormatException){
                 Console.Write("You did not enter a number"); // do something when user enters string instead of number
             }
