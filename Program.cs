@@ -24,20 +24,33 @@ namespace dotnetcore
         // creating a  guessing game//
         string secret_word= "giraffe";
         string guess="";
+        int no_of_guesses= 3;
 
-       /*  while(guess != secret_word){
+        /*  while(guess != secret_word){
             Console.WriteLine("enter a guess");
             guess= Console.ReadLine();
         }
         Console.WriteLine("You win"); */
 
         // can also do the same thing with a do while loop
-        do{
-            Console.WriteLine("Enter a guess");
-            guess = Console.ReadLine();
-        } while(guess != secret_word);
-        Console.WriteLine("You win");
+        
+        while(guess!=secret_word){
+        
+            if (no_of_guesses < 1){
+                Console.WriteLine("You have run out of guesses");
+                break;
+            }
+            else{
+                Console.WriteLine("You have " + no_of_guesses.ToString() + " guesses left.");
+                Console.WriteLine("Please enter a guess");
+                guess= Console.ReadLine();
+                no_of_guesses -= 1;
+            }
         }
+
+    if (guess == secret_word){
+        Console.WriteLine("You Win!");
+    }
 
         // we can also have methods that return things. in which case we will not put "void" next to statci but the data type we want to return. here in the cubing function we are returning an int, so static int
         static string Calculate(string num_1, string op, string num_2){
@@ -57,10 +70,10 @@ namespace dotnetcore
                 result=(Convert.ToDecimal(num_1) + Convert.ToDecimal(num_2)).ToString();
             }
             else if( op == "-"){
-                 result=(Convert.ToDecimal(num_1) - Convert.ToDecimal(num_2)).ToString();
+                result=(Convert.ToDecimal(num_1) - Convert.ToDecimal(num_2)).ToString();
             }
             else if (op == "/"){
-                 result=(Convert.ToDecimal(num_1)/Convert.ToDecimal(num_2)).ToString();
+                result=(Convert.ToDecimal(num_1)/Convert.ToDecimal(num_2)).ToString();
             }
             else if (op =="*"){
                  result=(Convert.ToDecimal(num_1) * Convert.ToDecimal(num_2)).ToString();      
@@ -106,4 +119,5 @@ namespace dotnetcore
             return DayName;
         }
     }
+}
 }
