@@ -5,11 +5,6 @@
 
  to do
 
- * overloaded constructors
- * abstract classes
- * array of objects
- * objects as arguments
- * polymorphisms
  * list of objects
  * auto implemented properties
  * enums

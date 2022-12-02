@@ -6,6 +6,54 @@ using System.Collections.Generic;
 
 namespace dotnetcore
 {
+     //interfaces = an interface defines a "contract" that all classes inheriting from should follow.
+        
+    //an interace declares what a class "should have"
+    // an intehriting class defines "how it should do it"
+
+
+    // to create an interface type "interface" and then the name of the interface, precedded with an I
+
+    interface IPrey{
+        //if you are prey you need a method to flee from predators
+
+        void Flee(); // we have declared it but not implemented it. That is the job of the class that wants to use it.
+        // the rabbit class will inherit from this interface
+    }
+
+    interface IPredator{
+        void Hunt()://implementing the method is the job of the class
+    }
+    
+    class Rabbit: IPrey{
+            //implement flee meehthod here
+            public void Flee(){
+                Console.WriteLine("The rabbit runs away");
+            }
+    }
+   
+    class Hawk: IPredator{
+        public void Hunts(){
+            Console.WriteLine("The hawk hunts");
+        }
+    }
+
+        //fish can be both prey and predators so will inherit from both interfaces
+     // this is the benefit of interfaces: you cna inherit from multiple interfaces unlike with standard class inheritance
+    
+    //auto implemented properties: shortuct when no additional logic is required in the property
+    //you do not have to define a field or property, you only have to write get and/or set inside the property.
+    
+     class Fish: IPrey, IPredator {
+         public void Hunts(){
+            Console.WriteLine("The fish hunts");
+        }
+
+        public void Flee(){
+                Console.WriteLine("The fish swims away");
+            }
+
+    }
 
     //abstract is a kyeword that you can apply to methods and classes
     //It is a modifier used in calsses to signify taht they are incomplete
@@ -44,6 +92,12 @@ namespace dotnetcore
             public override void MakeSpecialDish(){
             Console.WriteLine("The italian chef makes an italian special dish");
         
+        }
+    }
+
+    class Japanesechef: Chef{
+        public void MakeSushi(){
+            Console.WriteLine("the japanese chef is making sushi");
         }
     }
 
@@ -141,13 +195,11 @@ namespace dotnetcore
         public double gpa;
 
 
-        public Student( string aname, string amajor, double agpa){
-            name=aname;
-            major=amajor;
-            gpa=agpa;
-
+        public Student(string name, string major, double gpa){
+            this.name=name;
+            this.major=major;
+            this.gpa=gpa;
         }
-        
         //create a class method that checks if a particualr student is on the honour roll (gpa greater than 3.5)
         public bool HasHonours(){
             if (gpa >=3.5){
@@ -164,6 +216,47 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
+
+            //a function that changes the title of a book object
+            static void Change_title(Books book, string title){
+            book.title=title;
+            }
+
+            
+
+            //arrays of objects. We initialise one exactly like we did in the past for varaibles.
+            //specify the object type in the array (in our case chefs):
+
+            // an array of chefs with index3
+
+            Chef chef1= new Chef();
+            Chef chef2 = new Chef();
+            Chef chef3 = new Chef();
+
+            
+            //and tis is ow you create an array of obejcts
+            Chef[] brigade = new Chef[3];
+            brigade[0]=chef1;
+            brigade[1]=chef2;
+            brigade[2]=chef3;
+
+            //polymorphisms  suppose we now want to create an array of multiple types
+            // of chef (of italian chefs and japanese chefs). We can't create an array like before, because the array
+            //can only contain one data type, so only one chef type.
+
+            Japanesechef jchef= new Japanesechef();
+            Italianchef ichef = new Italianchef();
+
+            // we can enter them in an array by finding what they have in common. Thye
+        // all identify as chefs, because they all inherit from the chef class. These objects have more
+        // than one form because they can be identified in multiple ways.
+
+        // so create an array of chefs!
+
+        Chef[] chefs = new Chef[2];
+
+
+    
 
             //inheritance
 
