@@ -7,7 +7,19 @@ using System.Collections.Generic;
 namespace dotnetcore
 {
 
-    class Chef{
+    //abstract is a kyeword that you can apply to methods and classes
+    //It is a modifier used in calsses to signify taht they are incomplete
+    // the italian chef is a complete implemetnation of a class.
+    // we want to prevent people from picking generic implementations of the chef class (the generic chef) and only pick specific ones (like the italian chef)
+    // we will do this by using the abstract keyword
+    
+    // modifier that iindicates missing components or incomplete implementation
+    abstract class GenericChef{
+        public void CookFood(){
+            Console.WriteLine("chef can cook food");
+        }
+    }
+    class Chef: GenericChef{
         public void MakeChicken(){
             Console.WriteLine("The chef makes chicken");
         }
