@@ -22,7 +22,7 @@ namespace dotnetcore
     }
 
     interface IPredator{
-        void Hunt()://implementing the method is the job of the class
+        void Hunt();//implementing the method is the job of the class
     }
     
     class Rabbit: IPrey{
@@ -33,7 +33,7 @@ namespace dotnetcore
     }
    
     class Hawk: IPredator{
-        public void Hunts(){
+        public void Hunt(){
             Console.WriteLine("The hawk hunts");
         }
     }
@@ -45,7 +45,7 @@ namespace dotnetcore
     //you do not have to define a field or property, you only have to write get and/or set inside the property.
     
      class Fish: IPrey, IPredator {
-         public void Hunts(){
+         public void Hunt(){
             Console.WriteLine("The fish hunts");
         }
 
