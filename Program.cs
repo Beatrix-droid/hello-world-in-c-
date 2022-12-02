@@ -7,6 +7,54 @@ using System.Collections.Generic;
 namespace dotnetcore
 {
 
+    class Chef{
+        public void MakeChicken(){
+            Console.WriteLine("The chef makes chicken");
+        }
+
+        public void MakeSalad(){
+            Console.WriteLine("The chef makes salad");
+        }
+
+        public virtual void MakeSpecialDish(){
+            Console.WriteLine("The chef makes a special dish");
+        
+        }
+    }
+    
+    // can do everything that the normal chef can do but can also specifically make italian food as well!
+    // so italian chef inherits from the "normal" chef class
+    //use colons to inherit from Chef class
+    class Italianchef: Chef{
+            public void MakePasta(){
+                Console.WriteLine("Make Pasta!");
+            }
+            public override void MakeSpecialDish(){
+            Console.WriteLine("The italian chef makes an italian special dish");
+        
+        }
+    }
+
+    //italian chef can make pasta but not the normal chef.
+    //Suppose that the italian chef's special dish is different from the regular chef's dish. Need to modify
+    // or  overwrite that dish for the italian dish. You can fix this by copying the spoecial
+    //dish methiod in the chef class into the italian chef class and using teh voveride keyword
+// bThe "Virtual" keyword is used to modify a methid, property indexer or declaration so that it can be ovverridden by another class.
+
+    class UsefulTools{
+
+        //inheritance
+
+        public static void SayHi(string name){
+            Console.WriteLine("hello" + name);
+        }
+    }
+    // can access this class by UsefulTools.SayHi("Mike) to printout "hello Mike"
+    
+    //static methods are methods that belong to a class themselves
+    //don't have to create an object in that class to access the method and use it
+
+
     class Movie
     { //getters and settersallow us to modify and set teh code in private methods or variables
 
@@ -105,8 +153,15 @@ namespace dotnetcore
         static void Main(string[] args)
         {
 
+            //inheritance
+
+            Chef chef = new Chef();
+            chef.MakeChicken();
+
 
             //static methods
+           // can access this class by UsefulTools.SayHi("Mike) to 
+           //printout "hello mike" without declaring an instance of the UsefullTools class
 
             //here these two songsd have their own title, artist and duration, which are different from one another.
             //these are the normal attributes

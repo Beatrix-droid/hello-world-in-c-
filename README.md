@@ -4,7 +4,20 @@
 # A .NET Core CLI template on Gitpod
 
  to do
+
+ * overloaded constructors
+ * abstract classes
+ * array of objects
+ * objects as arguments
+ * polymorphisms
+ * list of objects
+ * auto implemented properties
+ * enums
+* generics
+* multithreading
  * multiple c# files and how to import them
+
+ 
 
 
 This is a [.NET Core CLI](https://docs.microsoft.com/en-us/dotnet/core/introduction) template configured for ephemeral cloud development environments on [Gitpod](https://www.gitpod.io/).
