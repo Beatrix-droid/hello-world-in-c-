@@ -17,7 +17,8 @@ namespace dotnetcore
         public Movie(string aTitle, string aDirector, string aRating){
                 title=aTitle;
                 director=aDirector;
-                rating=aRating;
+                //rating=aRating;
+                Rating= rating; //more secure, rating can only be set through this class
         }
 
 
@@ -36,12 +37,31 @@ namespace dotnetcore
         //we have only certain types of ratings (like PG, pG!£, R etc etc). We need a way to prevent users to insert a rating that is not in a list (like movie_1.arating= "dog")
         //this is achieved by using a PRIVATE method. PUBLIC methods and varaibles can be accessed (and thus modified) by anyone. but with PRIVATE only code isnide of the class
         //will be able to access that method/variable.
+        //create a static variable by using static
+    }  
 
     }
 
+//static attributes: a type of attribute in a class which is shared by all instances of that class
+//an attribute that is contained on the class itself rather than on the individual objects of that class. This attribute is the same across  all instances of the c
+//class
 
+    class Song{
+        public string title;
+        public string artist;
+        public int duration;
+        public static int count=0; //this is a static method
 
+        //use "this" keyword instead of "self" like in python
+        public Song(string title, string artist, int duration ){
+            this.title=title;
+            this.artist=artist;
+            this.duration=duration;
+            count++; //every time a song gets created, song count is increased by 1
+
+        }
     }
+
 
 
     public class Books
@@ -84,6 +104,16 @@ namespace dotnetcore
     {
         static void Main(string[] args)
         {
+
+
+            //static methods
+
+            //here these two songsd have their own title, artist and duration, which are different from one another.
+            //these are the normal attributes
+            //a  static attributes would be an attribute that is 
+            Song song_1 = new Song("Holiday", "Green Day", 200);
+            Song song_2 = new Song("Kashmir", "Led Zeppelin", 150);
+            Console.WriteLine(Song.count); //can do this as is attrbiute that belongs to the class
 
             //getters and setters
             Movie movie_1 = new Movie( "The Avengers", "Joss Whedon", "PG-13");
